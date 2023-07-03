@@ -1,0 +1,72 @@
+extends layout
+
+block content
+    div(class="w3-container" style="margin:auto;")
+        table
+            tr
+                td(style="width:30%;")
+                    a(href="/prova/"+uri style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;") 
+                        img(src="/images/"+info['results']['bindings'][0]['pri'].value + ".png" style="width:50%; height:50%;") 
+                td(style="width:70%;")
+                    a(href="/prova/"+uri  style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;") 
+                        h1(style="color:white;text-shadow: 2px 2px black;")= info['results']['bindings'][0]['pra'].value + " " + info['results']['bindings'][0]['prn'].value
+        table
+            tr
+                td(style="width:10%;")           
+                td(style="width:40%;")
+                    img(src="/images/"+info['results']['bindings'][0]['img'].value + ".jpg" class="w3-card-4 w3-border")
+                td(style="width:20%;")
+                    table(class="w3-table w3-card-4 w3-opacity-min w3-black")
+                        tr
+                            td= "Classificação: " + info['results']['bindings'][0]['class'].value +"º"
+                        tr
+                            td= "Competição: " + info['results']['bindings'][0]['comp'].value
+                        if info.results.bindings[0].temp
+                            tr
+                                td= "Tempo: " + info['results']['bindings'][0]['temp'].value
+                td(style="width:10%;")
+        br
+        br
+        table(class="w3-table w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%")
+            tr
+                td
+                    p(style="font-family: 'Bungee Shade',cursive;font-size: 70px;color: white")= info['results']['bindings'][0]['num'].value
+                td
+                    a(href="/"+info['results']['bindings'][0]['marci'].value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                        img(src="/images/"+info['results']['bindings'][0]['marci'].value+".png" style="; height:70px;margin-top:25px;")
+            th: b="Ocupantes"
+            tr
+                td
+                    a(href="/"+info['results']['bindings'][0]['eqi'].value  style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;") 
+                        p= info['results']['bindings'][0]['eqn'].value
+                td        
+            tr
+                td
+                    a(href="/piloto/"+info['results']['bindings'][0]['pn'].value + info['results']['bindings'][0]['pa'].value   style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;") 
+                        p="Piloto: " + info['results']['bindings'][0]['pn'].value + " " + info['results']['bindings'][0]['pa'].value
+                td 
+                    a(href="/"+info['results']['bindings'][0]['pi'].value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;"): p= info['results']['bindings'][0]['ps'].value + " "
+                        img(src="/images/"+info['results']['bindings'][0]['pi'].value + ".png" style="width: 25px;height: 20px;")
+            tr
+                td
+                    a(href="/piloto/"+info['results']['bindings'][0]['cn'].value + info['results']['bindings'][0]['ca'].value   style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;") 
+                        p= "Copiloto: " + info['results']['bindings'][0]['cn'].value + " " + info['results']['bindings'][0]['ca'].value
+                td
+                    a(href="/"+info['results']['bindings'][0]['ci'].value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;"): p= info['results']['bindings'][0]['cs'].value + " "
+                        img(src="/images/"+info['results']['bindings'][0]['ci'].value + ".png" style="width: 25px;height: 20px;")
+            th: b="Veículo"
+            tr
+                td= "Marca: " + info['results']['bindings'][0]['marc'].value
+                td= "Modelo: " + info['results']['bindings'][0]['modelo'].value
+            tr
+                td= "Versão: " + info['results']['bindings'][0]['versao'].value
+                td= "Série: " + info['results']['bindings'][0]['serie'].value
+            tr
+                if info.results.bindings[0].dec
+                    td= "Decoração: " + info['results']['bindings'][0]['dec'].value
+                td= "Corpo: " + info['results']['bindings'][0]['body'].value
+            tr
+                td= "Chassi: " + info['results']['bindings'][0]['chassi'].value
+                td
+                    a(href="/carro/"+ info.results.bindings[0].matr.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                        p= "Matricula: " + info['results']['bindings'][0]['matr'].value                              

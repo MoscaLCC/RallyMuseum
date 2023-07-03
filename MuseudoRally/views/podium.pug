@@ -1,0 +1,118 @@
+extends layout
+
+block content
+    center
+        p(style="font-size:100px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Podium"
+
+    table
+        tr
+            td(style="width:50%;")
+                center
+                    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Pilotos com mais 1º Lugares"
+                    table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%;")
+                        each pil in pl1
+                            tr
+                                td
+                                    a(href="/piloto/" + pil.n.value + pil.a.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  pil.n.value + " " + pil.a.value
+                                td
+                                    a(href="/piloto/" + pil.n.value + pil.a.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  pil.np.value
+
+                center
+                    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Pilotos com mais 2º Lugares"
+                    table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%;")
+                        each pil in pl2
+                            tr
+                                td
+                                    a(href="/piloto/" + pil.n.value + pil.a.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  pil.n.value + " " + pil.a.value
+                                td
+                                    a(href="/piloto/" + pil.n.value + pil.a.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  pil.np.value
+
+                center
+                    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Pilotos com mais 3º Lugares"
+                    table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%;")
+                        each pil in pl3
+                            tr
+                                td
+                                    a(href="/piloto/" + pil.n.value + pil.a.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  pil.n.value + " " + pil.a.value
+                                td
+                                    a(href="/piloto/" + pil.n.value + pil.a.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  pil.np.value  
+
+                center
+                    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Pilotos com mais participações"
+                    table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%;")
+                        each pil in plm
+                            tr
+                                td
+                                    a(href="/piloto/" + pil.n.value + pil.a.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  pil.n.value + " " + pil.a.value
+                                td
+                                    a(href="/piloto/" + pil.n.value + pil.a.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  pil.np.value
+
+                center
+                    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Melhores Tempos"
+                    table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%;")
+                        each pil in mt
+                            tr
+                                td
+                                    a(href="/piloto/" + pil.n.value + pil.a.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  pil.n.value + " " + pil.a.value
+                                td
+                                    a(href="/piloto/" + pil.n.value + pil.a.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  pil.t.value  
+
+            td(style="width:50%;")
+                center
+                    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Equipa com mais 1º Lugares"
+                    table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%;")
+                        each eq in eq1
+                            tr
+                                td
+                                    a(href="/" + eq.sim.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  eq.sn.value
+                                td
+                                    a(href="/piloto/" + eq.sim.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  eq.np.value
+
+                center
+                    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Equipa com mais 2º Lugares"
+                    table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%;")
+                        each eq in eq2
+                            tr
+                                td
+                                    a(href="/" + eq.sim.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  eq.sn.value
+                                td
+                                    a(href="/piloto/" + eq.sim.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  eq.np.value
+
+                center
+                    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Equipa com mais 3º Lugares"
+                    table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%;")
+                        each eq in eq3
+                            tr
+                                td
+                                    a(href="/" + eq.sim.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  eq.sn.value
+                                td
+                                    a(href="/piloto/" + eq.sim.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  eq.np.value
+
+                center
+                    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Equipa com mais participações"
+                    table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%;")
+                        each eq in eqm
+                            tr
+                                td
+                                    a(href="/" + eq.sim.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  eq.sn.value
+                                td
+                                    a(href="/piloto/" + eq.sim.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                        p=  eq.np.value                               
+                        

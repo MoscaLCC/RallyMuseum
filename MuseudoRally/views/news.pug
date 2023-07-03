@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+    center
+        p(style="font-size:100px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")="Notícias"
+    
+    each noticia in noticias
+        center
+            table
+                th
+                    p(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= noticia.title
+                tr
+                    td
+                        center
+                            img(src=noticia.urlToImage class="w3-card-4 w3-border w3-padding" style="width:750px;")
+                tr
+                    td
+                        center
+                            p(style="font-size:20px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= noticia.description
+                tr
+                    td
+                        center
+                            a(href=noticia.url class="w3-btn w3-round-xlarge w3-red")  
+                                p(style="font-size:15px;text-shadow: 2px 2px black;text-align: center;color:White;vertical-align: middle;")= "Ver Mais"

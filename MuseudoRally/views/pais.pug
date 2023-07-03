@@ -1,0 +1,49 @@
+extends layout
+
+block content
+
+    p(style="font-size:100px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")=info.nome.value
+
+    table(style="margin:auto;")
+        tr
+            td(style="align=right;")
+                img(src= "/images/"+ info.flag.value +".png")
+            td(style="width:20%;")    
+            td(style="align=right;")
+                table(class="w3-table w3-card-4 w3-opacity-min w3-black")
+                    tr
+                        center
+                            td= "Nome: " + info.nome.value
+                    tr
+                        center
+                            td= "Sigla: " + info.sigla.value
+                    tr
+                        td: center
+                            a(href=link)
+                                p(class="w3-button w3-black w3-border w3-opacity-min w3-border-red w3-round-large")=info.nome.value              
+           
+    table(style="margin:auto;")
+            td(style="align=right;vertical-align:top;")
+                h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Pilotos"
+                table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black")
+                    each piloto in pilotos
+                        tr
+                            td
+                                a(href="/piloto/"+ piloto.nome.value + piloto.aplido.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;") 
+                                    p= piloto.nome.value + " " + piloto.aplido.value
+            td(style="width:20%;")                              
+            td(style="vertical-align:top;align=left;")
+                h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Marcas"
+                table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="align:top;")
+                    each marca in marcas
+                        tr
+                            td
+                                a(href="/"+marca.mi.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                    p= marca.nome.value
+                h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Provas"
+                table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="align:top;")
+                    each prova in provas
+                        tr
+                            td
+                                 a(href="/prova/"+ prova style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;") 
+                                    p= prova

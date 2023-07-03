@@ -1,0 +1,16 @@
+doctype html
+html(lang="pt-pt")
+  head
+    title Museu do Rally
+    meta(charset="UTF-8")
+    link(rel='stylesheet', href='/stylesheets/w3.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/markerclusterer.js')
+    script(src='/javascripts/editForms.js')
+  body
+    header(class="w3-container w3-red w3-card-4" style="height:45px;")
+      p(style="text-align:center;")= "Museu do Rally"
+    block content
+    footer(class="w3-panel w3-red w3-card-4")
+      p= "by Luís Marques in PRC2018"
+    center    

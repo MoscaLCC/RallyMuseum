@@ -1,0 +1,37 @@
+extends layout3
+
+block content
+    div(class="w3-container w3-border" id="map")
+    script.
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 3,
+            center: new google.maps.LatLng(41.0000, -8.0000),
+            mapTypeId: 'roadmap'
+            })
+
+            var cookies = document.cookie
+
+            var marks = cookies.split('=')
+            var markrs = JSON.parse(unescape(marks[1]))
+            var markers = []
+            markrs.results.bindings.forEach(function(feature) {
+
+                var marker = new google.maps.Marker({ 
+                    position: new google.maps.LatLng(feature.lat, feature.lng),
+                    icon: "/images/"+feature.imagem.value+'.png',
+                    map: map
+                })
+                var contentString = '<h6>'+feature.nome.value+'</h6>'+
+                                    '<a href="/'+feature.imagem.value+'" class="w3-button">Detalhes</a>'
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                })
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                })
+                markers.push(marker)
+            })
+            
+        }
+    script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANRmWs-__NtRroB2uZU6JBSbOCR_U1Pj8&callback=initMap")

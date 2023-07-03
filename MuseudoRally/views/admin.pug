@@ -1,0 +1,55 @@
+extends layout
+
+block content
+    center
+        p(style="font-size:75px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Bem vindo á pagina de Administrador"
+    center
+        p(style="font-size:25px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Nesta pagina podem ser feitas insersões de novos dados na BD"
+    center
+        h1(class="w3-black") Novos Dados  
+        select(class="w3-btn w3-black w3-opacity-min w3-border w3-border-blue" name="tipoDados" id="tipoDados" onchange='apresentaForm()')
+            option(selected disabled) Tipo de Dados
+                option= "Piloto"
+                option= "Pais"
+                option= "Carro"
+                option= "Prova"
+                option= "Equipa"
+                option= "Grupo Participante"
+                option= "Marca"
+            
+        div(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" id="divOps")
+
+
+    script.
+        function apresentaForm(){
+            var x = document.getElementById("tipoDados").options[document.getElementById("tipoDados").selectedIndex].text
+
+            if(x === "Piloto"){
+                document.getElementById("divOps").innerHTML = ""
+                ePiloto()
+            }
+            if(x === "Pais"){
+                document.getElementById("divOps").innerHTML = ""
+                ePais()
+            }
+            if (x === "Carro") {
+                document.getElementById("divOps").innerHTML = ""
+                eCarro()
+            }
+            if(x === "Prova"){
+                document.getElementById("divOps").innerHTML = ""
+                eProva()
+            }
+            if(x === "Equipa"){
+                document.getElementById("divOps").innerHTML = ""
+                eEquipa()
+            }
+            if (x === "Grupo Participante") {
+                document.getElementById("divOps").innerHTML = ""
+                eGrupoParticipante()
+            }
+            if (x === "Marca") {
+                document.getElementById("divOps").innerHTML = ""
+                eMarca()
+            }
+        }

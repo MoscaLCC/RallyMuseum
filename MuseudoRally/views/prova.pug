@@ -1,0 +1,57 @@
+extends layout
+
+block content
+    div(class="w3-container")
+        center
+            p(style="font-size:70px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= info.results.bindings[0].ano.value+" "+info.results.bindings[0].nome.value
+        center
+            table
+                tr
+                    td(style="width:50%;")
+                        center
+                            img(src="/images/"+info['results']['bindings'][0]['imagem'].value + ".png")
+                    td(style="width:40%;")
+                        center
+                            table(class="w3-table w3-card-4 w3-black w3-opacity-min")
+                                tr
+                                    td= "Nome: " + info['results']['bindings'][0]['nome'].value
+                                    td= "Ano: " + info['results']['bindings'][0]['ano'].value
+                                tr
+                                    td= "Edição: " + info['results']['bindings'][0]['edicao'].value
+                                    td= "Cidade: " + info['results']['bindings'][0]['cidade'].value
+                                tr
+                                    td
+                                        a(href="/"+info['results']['bindings'][0]['img'].value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                            p= info['results']['bindings'][0]['sigla'].value + " "
+                                                img(src="/images/" + info['results']['bindings'][0]['img'].value + ".png" style="width: 25px;height: 20px;align:right")   
+                                    td
+                                        a(href=info.results.bindings[0].mapas)
+                                            p(class="w3-button w3-black w3-border w3-border-red w3-round-large")="Mapas"
+    div(class="w3-container")    
+        table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:50%;")
+            tr
+                td  
+                td Piloto
+                td 
+                td Copiloto
+                td Classificação
+            each val in participantes['results']['bindings']
+                if !(val.class.value < 0)
+                    tr
+                        td
+                            a(href="/"+val['part'].value  style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                img(src="/images/" + val['pi'].value + ".png" style="width: 25px;height: 20px;")
+                        td
+                            a(href="/"+val['part'].value  style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                p= val['pn'].value + " " + val['pa'].value
+                        td
+                            a(href="/"+val['part'].value  style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                img(src="/images/" + val['ci'].value + ".png" style="width: 25px;height: 20px;")
+                        td
+                            a(href="/"+val['part'].value  style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                p= val['cn'].value + " " + val['ca'].value
+                        td
+                            a(href="/"+val['part'].value  style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                                p= val['class'].value
+
+                

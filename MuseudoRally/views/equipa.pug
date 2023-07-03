@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    
+    center
+        p(style="font-size:100px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= nome
+    center
+        if(link)
+            a(href=link)
+                p(class="w3-button w3-black w3-border w3-opacity-min w3-border-red w3-round-large")= nome
+    br
+    center
+        div(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="width:75%")
+            p(style="font-size:20px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= text                   
+    br
+    center
+        h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")="Participações"
+    centers
+        div(class="w3-container")    
+        table(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:50%;")
+            tr
+                td Piloto
+                td Prova
+            each val in participacoes
+                tr
+                    td
+                        a(href="/"+val.uri.value  style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                            p= val.pnome.value + " " +  val.paplido.value
+                    td
+                        a(href="/"+val.uri.value  style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                            p= val.proano.value + " " + val.pronome.value
+    

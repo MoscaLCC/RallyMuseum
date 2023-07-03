@@ -1,0 +1,73 @@
+extends layout
+
+block content
+
+    p(style="font-size:100px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= info.nome.value +" "+ info.aplido.value
+    if infodbp
+        if infodbp.img
+            center: img(src=infodbp.img.value class="w3-card-4 w3-border ")
+
+    if infodbp
+        if infodbp.text
+            center
+                div(class="w3-table w3-hoverable w3-card-4 w3-opacity-min w3-black" style="width:75%")
+                    p(style="font-size:20px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= infodbp.text.value                  
+    
+
+    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Informação Pessoal"
+    table(class="w3-table w3-card-4 w3-opacity-min w3-black" style="width:30%;margin:auto;")
+        tr
+            td= "Nome: "+info.nome.value
+        tr    
+            td= "Aplido: "+info.aplido.value
+        tr
+            td= "Função: "+info.func.value
+        tr
+            td 
+                a(href="/"+info.pimg.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                    p= info.sigla.value+" "
+                        img(src="/images/"+info.pimg.value+".png" style="width: 25px;height: 20px;align:right")
+        if infodbp
+            if infodbp.link
+                tr
+                    td
+                        center
+                            a(href=infodbp.link.value)
+                                p(class="w3-button w3-black w3-border w3-opacity-min w3-border-red w3-round-large")=info.nome.value + ' ' + info.aplido.value              
+        br
+    if infodbp
+        table(class="w3-table w3-card-4 w3-opacity-min w3-black" style="width:30%;margin:auto;")
+            if infodbp.dnasc
+                tr
+                    td= "Data de Nascimento: " +infodbp.dnasc.value
+            if infodbp.frace
+                tr    
+                    td= "Primeira Corrida: "+infodbp.frace.value
+            if infodbp.fwin
+                tr
+                    td= "Primeira Vitoria: "+infodbp.fwin.value
+            if infodbp.pod
+                tr
+                    td= "Numero de Podiums: "+infodbp.pod.value
+            if infodbp.points
+                tr
+                    td= "Total de Pontos: "+infodbp.points.value
+            if infodbp.races
+                tr
+                    td= "Numero de Corridas: "+infodbp.races.value
+            if infodbp.swin
+                tr
+                    td= "Etapas Ganhas: "+infodbp.swin.value
+            if infodbp.wins
+                tr
+                    td= "Numero de Vitorias: "+infodbp.wins.value   
+    br
+    br
+
+    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;")= "Participações"
+    table(class="w3-table w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:40%")
+            each part in participacoes
+                tr
+                    td(style="vertical-align:middele;")
+                        a(href="/"+part.pimg.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;") 
+                            p(style="text-align:center;")= part.ano.value + " " + part.nome.value

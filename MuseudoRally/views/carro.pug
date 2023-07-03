@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    center
+        p(style="font-size:100px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= info.matr.value
+    br
+    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Informação do Veiculo"
+    table(class="w3-table w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%")
+        tr
+            td
+                a(href="/"+info.marci.value style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                    img(src="/images/"+info.marci.value+".png" style="; height:70px;margin-top:25px;")
+            td
+        tr
+            td= "Marca: " + info.marc.value
+            td= "Modelo: " + info.modelo.value
+        tr
+            td= "Versão: " + info.versao.value
+            td= "Série: " + info.serie.value
+        tr
+            if info.dec
+                td= "Decoração: " + info.dec.value
+            td= "Corpo: " + info.body.value
+        tr
+            td= "Chassi: " + info.chassi.value
+            td= "Matricula: " + info.matr.value 
+    h1(style="font-size:50px;text-shadow: 2px 2px black;text-align: center;color:white;vertical-align: middle;")= "Participações"
+    table(class="w3-table w3-card-4 w3-opacity-min w3-black" style="margin:auto;width:90%")
+        each val in provas    
+                tr
+                    td
+                        a(href="/"+val.uri.value  style = "display:block; width:100%; height:100%; border:none; outline:none; text-decoration:none; color:inherit;")
+                            p(style="text-align:center;")= val.ano.value + " " + val.nome.value

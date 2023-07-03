@@ -1,0 +1,70 @@
+doctype html
+html(lang="pt-pt")
+  head
+    title Museu do Rally
+    meta(charset="UTF-8")
+    link(rel='stylesheet', href='/stylesheets/w3.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Bungee+Shade')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Cabin+Sketch')
+    script(src='/javascripts/editForms.js')
+  body(class='inical-page')
+    header(class="w3-panel w3-red w3-card-4" style="height:50px;")
+      table
+        tr
+          td
+            p(style="font-family: 'Cabin Sketch', cursive;font-size:30px;")= "Museu do Rally"
+          td(style="width:32%;")
+          td
+            input(class="w3-input w3-border w3-white w3-round-large" type="text" placeholder="Pesquisar" id="pesquisa")
+          td
+            button(class="w3-btn w3-border w3-border-white w3-round-large" onclick="pesquisa()"): img(src="/images/lupa.png" style="height:25px;width:25px;")
+          td(style="width:20%;")
+          td
+            table
+              tr
+                td
+                  a(href="/home" class="w3-btn w3-border w3-round-large")
+                    img(src="/images/mapa.png" style="height:25px;width:25px;" )
+                td
+                  a(href="/podium" class="w3-btn w3-border w3-round-large")
+                    img(src="/images/podium.png" style="height:25px;width:25px;")
+                td
+                  a(href="/news" class="w3-btn w3-border w3-round-large")
+                    img(src="/images/news.png" style="height:25px;width:25px;")
+                td
+                  a(href="https://www.ralis.fpak.pt/calendario/114" class="w3-btn w3-border w3-round-large")
+                    img(src="/images/calendario.png" style="height:25px;width:25px;")
+                td
+                  a(href="/marcas" class="w3-btn w3-border w3-round-large")
+                    img(src="/images/marc.png" style="height:25px;width:25px;")
+    block content
+    footer(class="w3-panel w3-red w3-card-4")
+      table
+        tr
+          td
+            p= "by Luís Marques in PRC2018"
+          td(style="width:75%;")
+          td
+            table
+              tr 
+                td
+                  a(href="https://www.acp.pt/Inicio")
+                    img(src="/images/acp.png" style="height:30px;")
+                td(style="width:40%;")
+                td
+                  a(href="https://www.fia.com/")
+                    img(src="/images/fia.png" style="height:30px;")
+                td
+                  a(href="http://www.wrc.com/pt/")
+                    img(src="/images/wrc.png" style="height:30px;")
+                td
+                  a(href="http://www.fpak.pt/")
+                    img(src="/images/fpak.png" style="height:30px;")
+    center
+    script.
+      function pesquisa() {
+        var palavra = document.getElementById('pesquisa').value
+        palavra = palavra.split(' ').join('_')
+        window.location.replace("/pesquisa/" +palavra)
+      }
